@@ -28,9 +28,13 @@ Track.objects.aggregate(Sum('milliseconds'))
 
 7. Find the name of the most expensive track that has the media type "MPEG audio file".
 
+
 8. Find the 2 oldest artists.
+Artist.objects.order_by('created_at')[0].created_at 
+Artist.objects.order_by('created_at')[1].created_at 
 
 9. Find the least expensive track that has the genre "Electronica/Dance".
 
 10. Find all "MPEG audio file" tracks in the genre "Electronica/Dance".
+Track.objects.filter(media_type__name='MPEG audio file').filter(genre__name='Electronica/Dance')
 
